@@ -1,0 +1,11 @@
+MySQL:
+  enabled: false
+  user: root
+  password: '12345'
+  host: 'localhost:3306'
+  database: 'dmarry'
+  prefix: 'dmarry_'
+auto-purge:
+  enabled: true
+  purge-married-players: false
+  purge-after-days: 45

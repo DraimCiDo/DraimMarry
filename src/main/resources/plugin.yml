@@ -1,0 +1,13 @@
+name: DraimMarry
+version: ${project.version}
+main: me.draimgoose.draimmarry
+api-version: 1.17
+authors: [ DraimGooSe ]
+description: Плагин на свадьбы
+website: draimcido.ru
+softdepend:
+  - Vault
+commands:
+  marry:
+    description: Основная команда DraimMarry.
+    usage: /dmarry <args>
