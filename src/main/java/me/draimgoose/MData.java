@@ -8,7 +8,7 @@ public interface MData {
 
     UUID getPlayer1Id();
 
-    UUID getPlayer2Id();
+    UUID getPllayer2Id();
 
     UUID getOtherPlayer(UUID me);
 

@@ -10,7 +10,7 @@ public class CommandList extends Command {
     public CommandList(draimmarry marriage) {
         super(marriage, "list");
         setDescription(Message.COMMAND_LIST.toString());
-        setUsage("[page]");
+        setUsage("[стр]");
 
         setAllowConsole(true);
     }
@@ -19,7 +19,7 @@ public class CommandList extends Command {
     public void execute() {
         reply(Message.FETCHING_LIST);
         final int page = getArgLength() > 0 ? getArgAsInt(0) : 1;
-        if(page < 1) {
+        if (page < 1) {
             reply(Message.NEGATIVE_NUMBER);
         }
 
@@ -30,4 +30,6 @@ public class CommandList extends Command {
                 list.send(sender);
             }
         });
+    }
+}
 

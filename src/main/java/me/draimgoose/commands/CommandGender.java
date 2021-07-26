@@ -11,7 +11,7 @@ public class CommandGender extends Command {
     public CommandGender(draimmarry marriage) {
         super(marriage, "gender");
         setDescription(Message.COMMAND_GENDER.toString());
-        setUsage("<gender>");
+        setUsage("<пол>");
         setMinArgs(1);
     }
 

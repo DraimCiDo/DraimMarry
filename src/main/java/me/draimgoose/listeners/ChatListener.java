@@ -24,7 +24,7 @@ public class ChatListener implements Listener {
         final Player player = event.getPlayer();
         MPlayer mp = core.getMPlayer(player);
         if(mp.isInChat()) {
-            // Private chat
+            // Праватный чат
             if(!mp.isMarried() || !isOnline(mp.getPartner())) {
                 mp.setInChat(false);
                 return;
@@ -78,7 +78,7 @@ public class ChatListener implements Listener {
             format = "{marriage_gender}" + format;
         }
 
-        // Marriage status
+        // Статус свадьбы
         if(format.contains("{marriage_status}")) {
             String status = Settings.CHAT_FORMAT_UNMARRIED.value();
             if(mplayer.isMarried()) {

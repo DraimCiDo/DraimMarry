@@ -25,20 +25,20 @@ public class CommandMigrate extends Command {
         } else if(getArg(0).equalsIgnoreCase("mysql") && getArg(1).equalsIgnoreCase("sqlite")) {
             driver = Driver.MYSQL;
         } else {
-            reply("&cUsage: /marry migrate <old db> <new db>");
+            reply("&7Используйте: /marry migrate <старая бд> <новая бд>");
             return;
         }
 
         final boolean fastMode = getArgLength() <= 2 || !getArg(2).equalsIgnoreCase("false");
         final DataManager oldDatabase = new DataManager(core, driver);
 
-        reply("&aStarting migration process (might take a while)");
+        reply("&7Запуск процесса миграции (может занять некоторое время)");
         Bukkit.getScheduler().runTaskAsynchronously(marriage.getPlugin(), new Runnable() {
             @Override
             public void run() {
                 boolean success = oldDatabase.migrateTo(newDatabase, !fastMode);
                 oldDatabase.close(); // Disconnect from old db
-                reply(success ? "&aSuccessfully migrated database!" : "&cSomething went wrong while migrating, check log.");
+                reply(success ? "&aУспешно перенесена база данных!" : "&7Что-то пошло не так во время миграции, проверьте логи.");
             }
         });
     }

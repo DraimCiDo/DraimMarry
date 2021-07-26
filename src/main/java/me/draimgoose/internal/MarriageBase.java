@@ -24,7 +24,7 @@ public abstract class MarriageBase implements draimmarry {
         try {
             this.classPath = ClassPath.from(getClass().getClassLoader());
         } catch(IOException e) {
-            throw new RuntimeException("Failed to intialize class path!", e);
+            throw new RuntimeException("Не удалось инициализировать путь к классу!", e);
         }
     }
 
@@ -76,7 +76,7 @@ public abstract class MarriageBase implements draimmarry {
                     list.add((Class<? extends T>) clazz);
                 }
             } catch(Exception e) {
-                plugin.getLogger().log(Level.WARNING, "Failed to intiate class", e);
+                plugin.getLogger().log(Level.WARNING, "Не удалось запустить класс", e);
             }
         }
 
@@ -89,7 +89,7 @@ public abstract class MarriageBase implements draimmarry {
             try {
                 list.add(type.cast(clazz.getConstructors()[0].newInstance(params)));
             } catch(Exception e) {
-                plugin.getLogger().log(Level.WARNING, "Failed to construct class", e);
+                plugin.getLogger().log(Level.WARNING, "Не удалось создать класс", e);
             }
         }
 

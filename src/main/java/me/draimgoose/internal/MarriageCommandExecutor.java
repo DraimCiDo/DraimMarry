@@ -36,13 +36,13 @@ public class MarriageCommandExecutor implements CommandExecutor {
                     command.prepare(sender, args);
                     command.execute();
                 } else {
-                    sender.sendMessage(ChatColor.RED + "You must be a player to execute this command.");
+                    sender.sendMessage(ChatColor.RED + "Вы должны быть игроком, чтобы выполнить эту команду.");
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You are not permitted to use this command.");
+                sender.sendMessage(ChatColor.RED + "Вам не разрешается использовать эту команду.");
             }
         } else {
-            sender.sendMessage(ChatColor.RED + "You have not specified enough arguments for this command.");
+            sender.sendMessage(ChatColor.RED + "Вы не указали достаточно аргументов для этой команды.");
         }
 
         return true;
@@ -60,7 +60,7 @@ public class MarriageCommandExecutor implements CommandExecutor {
                 commands.put(alias.toLowerCase(), command);
             }
         } catch(Exception e) {
-            core.getLogger().log(Level.SEVERE, "Failed to register sub command", e);
+            core.getLogger().log(Level.SEVERE, "Не удалось зарегистрировать подкоманду", e);
         }
     }
 

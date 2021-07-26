@@ -34,7 +34,7 @@ public class DataConverter {
         long lastMessage = 0;
         File[] files = dir.listFiles();
         int totalFiles = files.length;
-        core.getLogger().log(Level.INFO, "Converting " + totalFiles + " old database entries...");
+        core.getLogger().log(Level.INFO, "Конвертирование " + totalFiles + " старых записей в БД...");
 
         // Retrieve UUIDs from mojang
         Map<String, UUID> uuidMap = Maps.newHashMap();
@@ -74,15 +74,15 @@ public class DataConverter {
                 try {
                     uuidMap.putAll(uuidFetcher.call());
                 } catch(Exception e) {
-                    core.getLogger().log(Level.WARNING, "Failed to retrieve UUID for 100 players!");
+                    core.getLogger().log(Level.WARNING, "Не удалось получить UUID для 100 игроков!");
                 }
                 uuidFetcher = new UUIDFetcher(new ArrayList<String>());
             }
         }
 
-        core.getLogger().log(Level.INFO, String.format("Converted %s entries. %s locally, %s through mojang, %s failed.",
+        core.getLogger().log(Level.INFO, String.format("Конвертирование записи %s. %s локально, %s через mojang, %s не удалось.",
                 totalFiles, totalFiles - ranThroughMojang - failed, ranThroughMojang, failed));
-        core.getLogger().log(Level.INFO, "Failed entries are likely from inactive players.");
+        core.getLogger().log(Level.INFO, "Неудачные записи, скорее всего, сделаны неактивными игроками.");
 
 //        for(int completed = 0; completed < totalFiles; completed++) {
 //            File file = files[completed];
@@ -117,7 +117,7 @@ public class DataConverter {
 //        }
 
         // Insert data into new DB...
-        core.getLogger().log(Level.INFO, "Inserting user data into new database...");
+        core.getLogger().log(Level.INFO, "Вставка пользовательских данных в новую базу данных...");
         int completed = 0;
         for(Map.Entry<String, UUID> entry : uuidMap.entrySet()) {
             try {
@@ -152,7 +152,7 @@ public class DataConverter {
                     }
                 }
             } catch(Exception e) {
-                core.getLogger().log(Level.WARNING, "Failed to convert data for player " + entry.getKey(), e);
+                core.getLogger().log(Level.WARNING, "Не удалось конвентировать данные для игрока " + entry.getKey(), e);
             }
 
             double progress = ++completed / (double) uuidMap.size();
@@ -163,15 +163,15 @@ public class DataConverter {
         }
 
         // Reset old data
-        core.getLogger().log(Level.INFO, "Renaming playerdata file...");
+        core.getLogger().log(Level.INFO, "Переименование файла playerdata...");
         int remainingTries = 60; // Try 60 times
         while(!dir.renameTo(new File(core.getPlugin().getDataFolder(), "playerdata_backup"))) {
             long sleepTime = 500L;
 
             // Limit to take 30 seconds max
             if(remainingTries-- <= 0) {
-                core.getLogger().log(Level.WARNING, "Failed to rename old playerdata file, please do manually!");
-                core.getLogger().log(Level.INFO, "Server starting normally in 10 seconds.");
+                core.getLogger().log(Level.WARNING, "Не удалось переименовать файл данных старых игроков, пожалуйста, сделайте это вручную!");
+                core.getLogger().log(Level.INFO, "Сервер запускается в обычном режиме через 10 секунд.");
                 sleepTime = 10000L;
             }
 

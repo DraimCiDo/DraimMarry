@@ -15,9 +15,9 @@ public @interface Register {
     int priority() default 5;
 
     public static enum Type {
-        LOAD("Completed plugin pre-load stage."),
-        ENABLE("Completed plugin load stage."),
-        DISABLE("Plugin has been completely disabled.");
+        LOAD("Завершен этап предварительной загрузки плагина."),
+        ENABLE("Завершен этап загрузки плагина."),
+        DISABLE("Плагин был полностью отключен.");
 
         private final String completionMessage;
 

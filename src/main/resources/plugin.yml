@@ -10,4 +10,4 @@ softdepend:
 commands:
   marry:
     description: Основная команда DraimMarry.
-    usage: /dmarry <args>
+    usage: /marry <args>

@@ -23,9 +23,9 @@ public class CommandHelp extends Command {
     @Override
     public void execute() {
         MarriageCommandExecutor commandExecutor = ((MarriageBase) marriage).getCommandExecutor();
-//		reply("Author: &alenis0012");
-        reply("Version: &a" + marriage.getPlugin().getDescription().getVersion());
-        reply("&2&m---------&2< &a&lMarriage Command Help &2>&2&m---------"); // Play around with the amount of dashes later
+		reply("Автор: &aDraimGooSe");
+        reply("Версия: &c" + marriage.getPlugin().getDescription().getVersion());
+        reply("&2&m---------&2< &cСвадьбы &2>&2&m---------"); // Play around with the amount of dashes later
         for(Command command : commandExecutor.getSubCommands()) {
             if(command.isHidden()) {
                 continue;
@@ -42,13 +42,13 @@ public class CommandHelp extends Command {
                 continue;
             }
             ComponentBuilder builder = new ComponentBuilder("/marry " + alias + command.getUsage()).color(ChatColor.GREEN)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Cost: "
+                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
                             + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()))
                     .append(" - ").color(ChatColor.WHITE)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Cost: "
+                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
                             + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()))
                     .append(command.getDescription()).color(ChatColor.GRAY)
-                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Cost: "
+                    .event(new HoverEvent(Action.SHOW_TEXT, new ComponentBuilder("Стоимость: "
                             + marriage.dependencies().getEconomyService().format(command.getExecutionFee())).create()));
             player.spigot().sendMessage(builder.create());
         }

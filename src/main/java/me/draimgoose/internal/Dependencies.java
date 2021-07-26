@@ -17,16 +17,16 @@ public class Dependencies {
         }
 
         if(!Bukkit.getPluginManager().isPluginEnabled("Vault")) {
-            core.getLogger().log(Level.WARNING, "Couldn't detect Vault, economy settings will not work");
+            core.getLogger().log(Level.WARNING, "Не удалось обнаружить Vault, настройки экономии не будут работать");
             return;
         }
 
         RegisteredServiceProvider<Economy> economyProvider = Bukkit.getServicesManager().getRegistration(Economy.class);
         if(economyProvider != null) {
             economyService = economyProvider.getProvider();
-            core.getLogger().log(Level.INFO, "Hooked with " + economyService.getName() + " using Vault");
+            core.getLogger().log(Level.INFO, "Хук с " + economyService.getName() + " используется плагином Vault");
         } else {
-            core.getLogger().log(Level.WARNING, "Vault is present, but no economy provider was found");
+            core.getLogger().log(Level.WARNING, "Vault присутствует, но поставщик экономики не найден");
         }
     }
 

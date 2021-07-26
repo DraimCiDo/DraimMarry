@@ -92,7 +92,7 @@ public class UUIDFetcher implements Callable<Map<String, UUID>> {
 
     public static UUID fromBytes(byte[] array) {
         if(array.length != 16) {
-            throw new IllegalArgumentException("Illegal byte array length: " + array.length);
+            throw new IllegalArgumentException("Недопустимая длина массива байтов: " + array.length);
         }
         ByteBuffer byteBuffer = ByteBuffer.wrap(array);
         long mostSignificant = byteBuffer.getLong();

@@ -15,9 +15,11 @@ import me.draimgoose.internal.data.MarriagePlayer;
 import me.draimgoose.listeners.*;
 import me.draimgoose.misc.ListQuery;
 import me.draimlib.modules.configuration.ConfigurationModule;
+import com.lenis0012.updater.api.ReleaseType;
+import com.lenis0012.updater.api.Updater;
+import com.lenis0012.updater.api.UpdaterFactory;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.Plugin;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -234,11 +236,6 @@ public class MarriageCore extends MarriageBase {
         }.start();
     }
 
-    /**
-     * Unload player from the memory
-     *
-     * @param uuid of player
-     */
     public void unloadPlayer(UUID uuid) {
         final MarriagePlayer mPlayer = players.remove(uuid);
         if(mPlayer != null) {

@@ -8,7 +8,7 @@ import me.draimgoose.config.Permissions;
 public class CommandChatSpy extends Command {
     public CommandChatSpy(draimmarry marriage) {
         super(marriage, "chatspy");
-        setDescription("Enable admin chat spy.");
+        setDescription("Включить слежку за чатом.");
         setPermission(Permissions.CHAT_SPY);
         setHidden(true);
     }

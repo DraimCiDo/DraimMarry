@@ -12,7 +12,7 @@ public class CommandReload extends Command {
         super(marriage, "reload");
 
         // Command options
-        setDescription("Reload configuration settings");
+        setDescription("Перезагрузить параметры конфигурации");
         setPermission(Permissions.RELOAD);
         setAllowConsole(true);
         setHidden(true);

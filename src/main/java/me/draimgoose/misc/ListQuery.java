@@ -38,7 +38,7 @@ public class ListQuery {
         this.marriages = marriages;
         for(MData marriage : marriages) {
             names.put(marriage.getPlayer1Id(), getNameFormat(db, marriage.getPlayer1Id()));
-            names.put(marriage.getPlayer2Id(), getNameFormat(db, marriage.getPlayer2Id()));
+            names.put(marriage.getPllayer2Id(), getNameFormat(db, marriage.getPllayer2Id()));
         }
     }
 
@@ -52,7 +52,7 @@ public class ListQuery {
                     to.sendMessage(ChatColor.translateAlternateColorCodes('&', "&bмужчина &f- &dженщина &f- &7неизвестно"));
                 }
                 for(MData data : marriages) {
-                    to.sendMessage(names.get(data.getPlayer1Id()) + ChatColor.WHITE + " + " + names.get(data.getPlayer2Id()));
+                    to.sendMessage(names.get(data.getPlayer1Id()) + ChatColor.WHITE + " + " + names.get(data.getPllayer2Id()));
                 }
             }
         }.runTask(MarriagePlugin.getCore().getPlugin());

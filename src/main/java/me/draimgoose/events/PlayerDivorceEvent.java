@@ -6,11 +6,6 @@ import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-/**
- * Player divorce event.
- * <p>
- * Called when two players are about to divorce.
- */
 public class PlayerDivorceEvent extends Event implements Cancellable {
     private static final HandlerList handlerList = new HandlerList();
 
@@ -23,20 +18,10 @@ public class PlayerDivorceEvent extends Event implements Cancellable {
         this.marriage = marriage;
     }
 
-    /**
-     * Get the player that initiated the divorce.
-     *
-     * @return Divorcing player
-     */
     public MPlayer getPlayer() {
         return player;
     }
 
-    /**
-     * Get the marriage that is about to end.
-     *
-     * @return Marriage
-     */
     public MData getMarriage() {
         return marriage;
     }
