@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public abstract class MarriageBase implements draimmarry {
+public abstract class MarriageBase extends draimmarry {
     protected final MarriagePlugin plugin;
     private final ClassPath classPath;
     private MarriageCommandExecutor commandExecutor;

@@ -7,31 +7,32 @@ import me.draimgoose.misc.ListQuery;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.UUID;
 import java.util.logging.Logger;
 
-public interface draimmarry {
+public abstract class draimmarry extends JavaPlugin {
 
-    BConfig getBukkitConfig(String file);
+    public abstract BConfig getBukkitConfig(String file);
 
-    MPlayer getMPlayer(UUID uuid);
+    public abstract MPlayer getMPlayer(UUID uuid);
 
-    MPlayer getMPlayer(Player player);
+    public abstract MPlayer getMPlayer(Player player);
 
-    ListQuery getMarriageList(int scale, int page);
+    public abstract ListQuery getMarriageList(int scale, int page);
 
-    MData marry(MPlayer player1, MPlayer player2);
+    public abstract MData marry(MPlayer player1, MPlayer player2);
 
-    MData marry(MPlayer player1, MPlayer player2, MPlayer priest);
+    public abstract MData marry(MPlayer player1, MPlayer player2, MPlayer priest);
 
-    void register(Listener listener);
+    public abstract void register(Listener listener);
 
-    void register(Class<? extends Command> commandClass, Class<? extends Command>... commandClasses);
+    public abstract void register(Class<? extends Command> commandClass, Class<? extends Command>... commandClasses);
 
-    Logger getLogger();
+    public abstract Logger getLogger();
 
-    Plugin getPlugin();
+    public abstract Plugin getPlugin();
 
-    Dependencies dependencies();
+    public abstract Dependencies dependencies();
 }
